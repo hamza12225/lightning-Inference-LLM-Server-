@@ -1,0 +1,20 @@
+{
+  "model": "phi4-mini:latest",
+  "explanation": {
+    "explanation": "The anomaly detected in the retail orders record is a null_spike anomaly involving the total_amount field. The total_amount field is showing null values, which indicates missing or unrecorded data during transaction processing.",
+    "root_cause": "Possible causes may include database connectivity issues, incomplete transaction capture, or errors in data serialization and deserialization processes during peak hours.",
+    "severity": "medium",
+    "recommended_action": "Investigate and resolve the data capture process for the affected orders. Ensure consistent data serialization and deserialization. Monitor database connectivity during peak hours."
+  },
+  "latency_ms": 20836.33,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:37:06.585174",
+  "record": {
+    "order_id": "TEST",
+    "store_name": "Carrefour Test",
+    "total_amount": null
+  },
+  "issues": [
+    "null_values:[total_amount]"
+  ]
+}

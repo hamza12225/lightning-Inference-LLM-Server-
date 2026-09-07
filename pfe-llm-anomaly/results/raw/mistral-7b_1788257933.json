@@ -1,0 +1,32 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The anomaly detected is a 'range_violation' for the 'quantity' field in the specified retail.orders record. The quantity_after value (-99999) is outside the expected range [0, 100000]. This indicates an incorrect entry or data error, possibly due to a mistake during the adjustment process. The quantity_delta also falls outside the expected range [-10000, 10000], further confirming the anomaly.",
+    "root_cause": "The root cause appears to be a data entry error or an incorrect adjustment process for the product 'Huile Lesieur 5L' at 'Carrefour Express Tanger Med'.",
+    "severity": "high",
+    "recommended_action": "Correct the data entry error, ensure proper usage of the adjustment screen, and double-check the quantity adjustments for this product to prevent further inconsistencies. It may also be beneficial to add hard validation at the producer level to prevent such errors in the future."
+  },
+  "latency_ms": 6945.15,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:18:53.068285",
+  "record": {
+    "event_id": "0d106556-88e5-4a09-81f7-8fec6a748b96",
+    "store_id": "STR-CAR-E-TNG",
+    "store_name": "Carrefour Express Tanger Med",
+    "product_id": "PRD-008",
+    "sku": "LSR-OIL-5L",
+    "product_name": "Huile Lesieur 5L",
+    "category": "Grocery",
+    "event_type": "adjustment",
+    "quantity_before": 360,
+    "quantity_after": -99999,
+    "quantity_delta": -99999,
+    "reason": "normal",
+    "event_ts": "2026-09-01T10:09:08.148472",
+    "_anomaly": "range_violation"
+  },
+  "issues": [
+    "range_violation:quantity_after=-99999.0 (expected [0, 100000])",
+    "range_violation:quantity_delta=-99999.0 (expected [-10000, 10000])"
+  ]
+}

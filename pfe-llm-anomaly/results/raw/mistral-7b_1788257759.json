@@ -1,0 +1,44 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly in the 'retail.orders' record involves two categorical drift issues. The 'status' field contains an unallowed value 'UNKNOWN_STATUS' which should be either 'completed', 'pending', or 'cancelled'. The 'payment_method' field contains an unallowed value 'crypto' which should be either 'cash', 'card', or 'mobile'.",
+    "root_cause": "The root cause is a configuration error where the 'status' and 'payment_method' fields do not have the expected values as defined in the business rules.",
+    "severity": "medium",
+    "recommended_action": "Contact the regional coordinator to update the store configuration for the 'status' and 'payment_method' fields. If necessary, update the CATEGORICAL_FIELDS in the config file to include 'UNKNOWN_STATUS' for the 'status' field and 'crypto' for the 'payment_method' field."
+  },
+  "latency_ms": 8759.99,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:15:59.455277",
+  "record": {
+    "order_id": "4034ddb6-b1dc-46e1-bf35-d582853fcce0",
+    "store_id": "STR-CAR-H-CAS",
+    "store_name": "Carrefour Hyper Ain Sebaa",
+    "store_type": "Hypermarche",
+    "city": "Casablanca",
+    "region": "Grand Casablanca",
+    "customer_id": "CUST-8916",
+    "status": "UNKNOWN_STATUS",
+    "total_amount": 525.25,
+    "currency": "MAD",
+    "payment_method": "crypto",
+    "lines": [
+      {
+        "line_id": "1b59520a-0037-49d2-aaa8-f05c1c0574fe",
+        "product_id": "PRD-004",
+        "sku": "LSR-OIL-1L",
+        "product_name": "Huile Lesieur 1L",
+        "category": "Grocery",
+        "quantity": 19,
+        "unit_price": 28.5,
+        "discount": 0.03,
+        "line_total": 525.25
+      }
+    ],
+    "order_ts": "2026-09-01T10:08:49.388233",
+    "_anomaly": "categorical_drift"
+  },
+  "issues": [
+    "invalid_category:status='UNKNOWN_STATUS' (allowed=['completed', 'pending', 'cancelled'])",
+    "invalid_category:payment_method='crypto' (allowed=['cash', 'card', 'mobile'])"
+  ]
+}

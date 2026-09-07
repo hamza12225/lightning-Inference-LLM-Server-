@@ -1,0 +1,29 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The anomaly 'categorical_drift' was detected in the 'event_type' field of the record. The detected issue is 'invalid_category:event_type='UNKNOWN_OP' (allowed=['receive', 'pick', 'pack', 'ship', 'return']). This means the event type 'UNKNOWN_OP' is not a valid event type according to the business rules. This could be due to a system error or an undocumented operation.",
+    "root_cause": "The event type 'UNKNOWN_OP' is not defined in the allowed event types.",
+    "severity": "medium",
+    "recommended_action": "Review the event types and update the allowed values in the relevant configuration files. Also, contact the system team to investigate the cause of the 'UNKNOWN_OP' event."
+  },
+  "latency_ms": 9385.96,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:31:17.119534",
+  "record": {
+    "event_id": "06bc9f23-d39b-4fa1-b68b-c8b01fe94f8c",
+    "warehouse_id": "WH-RBA-01",
+    "product_id": "PRD-009",
+    "sku": "NST-MLK-400",
+    "product_name": "Nido Milk Powder 400g",
+    "category": "Dairy",
+    "event_type": "UNKNOWN_OP",
+    "quantity": 144,
+    "zone": "COLD",
+    "operator_id": "OPR-751",
+    "event_ts": "2026-09-01T09:27:06.234636",
+    "_anomaly": "categorical_drift"
+  },
+  "issues": [
+    "invalid_category:event_type='UNKNOWN_OP' (allowed=['receive', 'pick', 'pack', 'ship', 'return'])"
+  ]
+}

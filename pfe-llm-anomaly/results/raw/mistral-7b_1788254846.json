@@ -1,0 +1,32 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The anomaly detected in the record is a range violation for the quantity field. The quantity_before value is 130, but the quantity_after value is -99999, which is outside the expected range of [-10000, 10000]. This indicates an incorrect quantity entry during the sale event.",
+    "root_cause": "The root cause is likely an input error or data entry mistake by the store's staff, where they entered a quantity that is significantly lower than expected for the product in question.",
+    "severity": "high",
+    "recommended_action": "The store should review the transaction, correct any errors, and ensure that proper data entry procedures are followed to prevent similar errors in the future. The engineer should also implement hard validation at the producer level to prevent such anomalies from occurring."
+  },
+  "latency_ms": 5572.46,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:27:26.777324",
+  "record": {
+    "event_id": "de7279ac-8b1c-44b7-8fb4-cd6d57a3cf82",
+    "store_id": "STR-CAR-H-MRK",
+    "store_name": "Carrefour Hyper Marrakech",
+    "product_id": "PRD-005",
+    "sku": "NST-NES-200",
+    "product_name": "Nescafe Classic 200g",
+    "category": "Grocery",
+    "event_type": "sale",
+    "quantity_before": 130,
+    "quantity_after": -99999,
+    "quantity_delta": -99999,
+    "reason": "supplier_delivery",
+    "event_ts": "2026-09-01T09:24:57.039209",
+    "_anomaly": "range_violation"
+  },
+  "issues": [
+    "range_violation:quantity_after=-99999.0 (expected [0, 100000])",
+    "range_violation:quantity_delta=-99999.0 (expected [-10000, 10000])"
+  ]
+}

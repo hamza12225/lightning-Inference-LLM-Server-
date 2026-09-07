@@ -1,0 +1,30 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is a schema_drift due to the presence of an unexpected field 'unexpected_wh_field' in the retail.orders records, which violates the expected schema. This could be caused by a recent update in the warehouse system or a new producer version that has renamed fields.",
+    "root_cause": "Either a system update or new producer version has resulted in the introduction of an unexpected field 'unexpected_wh_field'.",
+    "severity": "critical",
+    "recommended_action": "Immediately contact IT coordinator to address the schema drift. Additionally, review git log --oneline -10 on the producer to understand the changes, and update the EXPECTED_SCHEMA accordingly to account for the new 'unexpected_wh_field'."
+  },
+  "latency_ms": 16926.32,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:31:07.150672",
+  "record": {
+    "event_id": "78983a6b-de3e-4379-8c5d-e26c25f9621f",
+    "warehouse_id": "WH-CAS-02",
+    "product_id": "PRD-003",
+    "sku": "UNL-SHP-400",
+    "product_name": "Dove Shampoo 400ml",
+    "category": "Hygiene",
+    "event_type": "pick",
+    "quantity": 85,
+    "operator_id": "OPR-636",
+    "event_ts": "2026-09-01T09:26:57.442923",
+    "_anomaly": "schema_drift",
+    "unexpected_wh_field": "drift"
+  },
+  "issues": [
+    "missing_fields:['zone']",
+    "unexpected_fields:['unexpected_wh_field']"
+  ]
+}

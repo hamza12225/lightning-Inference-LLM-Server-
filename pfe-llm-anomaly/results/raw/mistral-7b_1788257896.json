@@ -1,0 +1,31 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The anomaly detected is a range violation for the quantity of the product 'Nido Milk Powder 400g' in the 'Carrefour Market Tanger City' store. The quantity after the event is -4, which is less than 0 and greater than the allowed range [0, 100000]. According to business rules, the quantity should be an integer greater than 0 and less than or equal to 500.",
+    "root_cause": "The quantity entered for the product 'Nido Milk Powder 400g' in the sale event is outside the allowed range.",
+    "severity": "medium",
+    "recommended_action": "Ensure that the correct quantity is entered during the sale event. If the issue persists, verify the inventory management system and consider adding hard validation at the producer or implementing checks within the system."
+  },
+  "latency_ms": 5881.86,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:18:16.220474",
+  "record": {
+    "event_id": "f8e8abd6-8de6-4b63-b6cf-871715e3056e",
+    "store_id": "STR-CAR-M-TNG",
+    "store_name": "Carrefour Market Tanger City",
+    "product_id": "PRD-009",
+    "sku": "NST-MLK-400",
+    "product_name": "Nido Milk Powder 400g",
+    "category": "Dairy",
+    "event_type": "sale",
+    "quantity_before": 36,
+    "quantity_after": -4,
+    "quantity_delta": -40,
+    "reason": "supplier_delivery",
+    "event_ts": "2026-09-01T10:13:10.705799",
+    "_anomaly": null
+  },
+  "issues": [
+    "range_violation:quantity_after=-4.0 (expected [0, 100000])"
+  ]
+}

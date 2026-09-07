@@ -1,0 +1,32 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The anomaly detected is 'schema_drift' due to the presence of an unexpected field 'new_logistics_field' in the retail.orders record. This field is not expected according to the schema and may indicate a data quality issue. The root cause could be a store system update or a new producer version. It is recommended to contact the IT coordinator immediately to investigate and address this critical issue.",
+    "root_cause": "store system update or new producer version",
+    "severity": "critical",
+    "recommended_action": "Contact IT coordinator immediately. git log --oneline -10 on producer, update EXPECTED_SCHEMA."
+  },
+  "latency_ms": 20308.83,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:31:11.745571",
+  "record": {
+    "shipment_id": "9e0a5fff-67c6-40fb-acd7-f4cd3b8fff8a",
+    "supplier_id": "SUP-005",
+    "supplier_name": "Nestle Maroc",
+    "store_id": "STR-CAR-M-FES",
+    "store_name": "Carrefour Market Fes Atlas",
+    "product_id": "PRD-005",
+    "sku": "NST-NES-200",
+    "product_name": "Nescafe Classic 200g",
+    "status": "pending",
+    "quantity": 380,
+    "tracking_number": "TRK-930284",
+    "shipment_ts": "2026-09-01T09:25:24.847625",
+    "_anomaly": "schema_drift",
+    "new_logistics_field": "unexpected"
+  },
+  "issues": [
+    "missing_fields:['carrier']",
+    "unexpected_fields:['new_logistics_field']"
+  ]
+}

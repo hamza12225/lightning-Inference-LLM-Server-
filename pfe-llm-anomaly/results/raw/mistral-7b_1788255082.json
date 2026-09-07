@@ -1,0 +1,31 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is a categorical drift in the 'status' field. The expected values for this field are ['pending', 'in_transit', 'delivered', 'cancelled', 'returned'], however, the record shows 'LOST_IN_TRANSIT', which is not included in the expected values. This anomaly may be due to a system update, a new policy, or an unforeseen event.",
+    "root_cause": "The root cause of this anomaly is the 'status' value 'LOST_IN_TRANSIT' not being included in the expected values.",
+    "severity": "medium",
+    "recommended_action": "Contact the regional coordinator to verify the change in the 'status' field and update the CATEGORICAL_FIELDS in config if necessary."
+  },
+  "latency_ms": 10461.4,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:31:22.738414",
+  "record": {
+    "shipment_id": "9ee33aa8-2835-4e2b-bcd5-304ed5811b89",
+    "supplier_id": "SUP-001",
+    "supplier_name": "Danone Maroc",
+    "store_id": "STR-CAR-M-TNG",
+    "store_name": "Carrefour Market Tanger City",
+    "product_id": "PRD-006",
+    "sku": "DAN-YGT-500",
+    "product_name": "Danone Yaourt Fruits 500g",
+    "status": "LOST_IN_TRANSIT",
+    "quantity": 475,
+    "carrier": "Interne",
+    "tracking_number": "TRK-494386",
+    "shipment_ts": "2026-09-01T09:27:19.411507",
+    "_anomaly": "categorical_drift"
+  },
+  "issues": [
+    "invalid_category:status='LOST_IN_TRANSIT' (allowed=['pending', 'in_transit', 'delivered', 'cancelled', 'returned'])"
+  ]
+}

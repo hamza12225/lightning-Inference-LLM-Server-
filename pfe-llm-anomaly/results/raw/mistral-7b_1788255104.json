@@ -1,0 +1,30 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is a 'null_spike' for the 'warehouse_id' field in the provided record. According to the business rules, 'warehouse_id' is a required field in the orders records (Rule 1). Additionally, the 'quantity' field for the order_line is also missing a value, which violates Rule 3. To resolve this issue, it is recommended to investigate the reason for the missing 'warehouse_id' and 'quantity' values and ensure that they are provided in future records.",
+    "root_cause": "Missing required fields: 'warehouse_id'",
+    "severity": "high",
+    "recommended_action": "Investigate and provide required fields: 'warehouse_id' and 'quantity'"
+  },
+  "latency_ms": 5126.03,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:31:44.643437",
+  "record": {
+    "event_id": "e78144ef-2838-45a3-9ebb-5c9bdde239ca",
+    "warehouse_id": null,
+    "product_id": "PRD-002",
+    "sku": "DAN-MLK-1L",
+    "product_name": "Centrale Lben 1L",
+    "category": "Dairy",
+    "event_type": "pack",
+    "quantity": null,
+    "zone": "B1",
+    "operator_id": "OPR-469",
+    "event_ts": "2026-09-01T09:28:08.662166",
+    "_anomaly": "null_spike"
+  },
+  "issues": [
+    "null_required_fields:['warehouse_id']",
+    "null_values:['warehouse_id', 'quantity']"
+  ]
+}

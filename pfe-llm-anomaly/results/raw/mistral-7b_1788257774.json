@@ -1,0 +1,44 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is a schema_drift due to the presence of an unexpected field 'unexpected_field' which does not match the expected schema. This inconsistency may indicate a change in the producer's schema, as observed in Rule 3 of the anomaly playbook. The missing field 'currency' might be a consequence of the same issue or a separate one.",
+    "root_cause": "The root cause appears to be a change in the producer's schema, possibly due to a recent update or a new version of the producer.",
+    "severity": "critical",
+    "recommended_action": "Contact IT coordinator immediately and perform a git log --oneline -10 on the producer to identify the commit that introduced the schema change. Update the EXPECTED_SCHEMA accordingly and stop the pipeline until the issue is resolved."
+  },
+  "latency_ms": 5623.81,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:16:14.417446",
+  "record": {
+    "order_id": "045e5785-c29d-4e4d-bb33-30633e83a632",
+    "store_id": "STR-CAR-H-CAS",
+    "store_name": "Carrefour Hyper Ain Sebaa",
+    "store_type": "Hypermarche",
+    "city": "Casablanca",
+    "region": "Grand Casablanca",
+    "customer_id": "CUST-4913",
+    "status": "completed",
+    "total_amount": 654.75,
+    "payment_method": "cash",
+    "lines": [
+      {
+        "line_id": "76fb36b4-a2a4-4ea6-ab02-985c5553ad2a",
+        "product_id": "PRD-003",
+        "sku": "UNL-SHP-400",
+        "product_name": "Dove Shampoo 400ml",
+        "category": "Hygiene",
+        "quantity": 15,
+        "unit_price": 45.0,
+        "discount": 0.03,
+        "line_total": 654.75
+      }
+    ],
+    "order_ts": "2026-09-01T10:11:21.927577",
+    "_anomaly": "schema_drift",
+    "unexpected_field": "drift_value"
+  },
+  "issues": [
+    "missing_fields:['currency']",
+    "unexpected_fields:['unexpected_field']"
+  ]
+}

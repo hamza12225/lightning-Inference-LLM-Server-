@@ -1,0 +1,31 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is a 'null_spike' for 'quantity_before' and 'quantity_after' fields in the provided retail.orders record. According to the inventory_event rule, both 'quantity_before' and 'quantity_after' are required and should be greater than or equal to 0. However, in this case, they are null, which violates the rule.",
+    "root_cause": "Violation of the inventory_event rule",
+    "severity": "critical",
+    "recommended_action": "The system should not allow the creation of records with null values for 'quantity_before' and 'quantity_after' in inventory_event. If the data is already in the system, it should be investigated and corrected."
+  },
+  "latency_ms": 5038.85,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:17:45.034039",
+  "record": {
+    "event_id": "81f3c76e-702f-440d-b07e-1c5a7bf6e515",
+    "store_id": "STR-CAR-E-RBA",
+    "store_name": "Carrefour Express Agdal",
+    "product_id": "PRD-006",
+    "sku": "DAN-YGT-500",
+    "product_name": "Danone Yaourt Fruits 500g",
+    "category": "Dairy",
+    "event_type": "restock",
+    "quantity_before": null,
+    "quantity_after": null,
+    "quantity_delta": 94,
+    "reason": "promotion",
+    "event_ts": "2026-09-01T10:07:30.192674",
+    "_anomaly": "null_spike"
+  },
+  "issues": [
+    "null_values:['quantity_before', 'quantity_after']"
+  ]
+}

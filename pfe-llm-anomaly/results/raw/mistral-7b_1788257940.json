@@ -1,0 +1,32 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly in the 'restock' event for the 'Danone Yaourt Fruits 500g' product at 'Carrefour Express Tanger Med' (store_id: 'STR-CAR-E-TNG') involves a quantity_before of 67 and a quantity_after of -99999. This violation of the expected range indicates that the quantity has been updated with an unreasonable value, which is less than zero, contrary to the business rule that the quantity should be greater than 0 and less than or equal to 500 for each order line. This anomaly could be due to a data entry error or a programming issue.",
+    "root_cause": "Data entry error or programming issue causing a negative quantity update.",
+    "severity": "high",
+    "recommended_action": "Investigate the cause of the data entry error or programming issue, rectify the recorded quantity, and consider implementing additional data validation checks to prevent similar errors in the future."
+  },
+  "latency_ms": 6712.05,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:19:00.227010",
+  "record": {
+    "event_id": "2506058d-0d9c-4987-a8ad-bd0df002d953",
+    "store_id": "STR-CAR-E-TNG",
+    "store_name": "Carrefour Express Tanger Med",
+    "product_id": "PRD-006",
+    "sku": "DAN-YGT-500",
+    "product_name": "Danone Yaourt Fruits 500g",
+    "category": "Dairy",
+    "event_type": "restock",
+    "quantity_before": 67,
+    "quantity_after": -99999,
+    "quantity_delta": -99999,
+    "reason": "supplier_delivery",
+    "event_ts": "2026-09-01T10:12:02.558375",
+    "_anomaly": "range_violation"
+  },
+  "issues": [
+    "range_violation:quantity_after=-99999.0 (expected [0, 100000])",
+    "range_violation:quantity_delta=-99999.0 (expected [-10000, 10000])"
+  ]
+}

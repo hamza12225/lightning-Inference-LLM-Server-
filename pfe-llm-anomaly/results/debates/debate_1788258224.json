@@ -1,0 +1,50 @@
+{
+  "model": "qwen3:8b",
+  "pipeline_id": "retail",
+  "anomaly_type": "range_violation",
+  "verdict": {
+    "agreed_cause": "Negative stock quantity adjustment for Dove Shampoo 400ml at Carrefour Hyper Marrakech due to invalid data input leading to inventory inaccuracies.",
+    "agreed_severity": "high",
+    "agreed_fix": "Correct the inventory records immediately, validate data input to ensure quantity_after is within [0, 100000] and quantity_delta within [-10000, 10000], and implement data sanitization to prevent invalid values.",
+    "confidence": 0.0,
+    "escalate_to_human": true,
+    "escalation_reason": "Low confidence 0.00",
+    "manager_message": "The negative stock quantity adjustment requires immediate attention to prevent inventory inaccuracies and stockouts. Please ensure data validation processes are reviewed and strengthened.",
+    "engineer_message": "Check the data input validation rules for quantity_after and quantity_delta, correct the inventory records, and implement data sanitization to reject or correct invalid values.",
+    "debate_summary": "All agents agree on the severity and cause of the negative stock quantity, but confidence is low, necessitating human intervention."
+  },
+  "agent_arguments": {
+    "BusinessSpecialist": {
+      "position": "The adjustment of Dove Shampoo 400ml at Carrefour Hyper Marrakech resulted in a negative stock quantity, which could lead to inventory inaccuracies and potential stockouts.",
+      "evidence": [
+        "quantity_after=-99999.0 (expected [0, 100000])",
+        "quantity_delta=-99999.0 (expected [-10000, 10000])"
+      ],
+      "confidence": 0.0,
+      "severity": "high",
+      "recommended_action": "Investigate the cause of the negative quantity adjustment and correct the inventory records immediately to prevent stock discrepancies."
+    },
+    "DataQuality": {
+      "position": "quantity_after=-99999.0 (expected [0, 100000])",
+      "evidence": [
+        "range_violation:quantity_after=-99999.0 (expected [0, 100000])",
+        "range_violation:quantity_delta=-99999.0 (expected [-10000, 10000])"
+      ],
+      "confidence": 0.0,
+      "severity": "high",
+      "recommended_action": "Validate input data to ensure quantity_after is within [0, 100000] and quantity_delta within [-10000, 10000]. Implement data sanitization to correct or reject invalid values."
+    },
+    "AnomalyDetection": {
+      "position": "quantity_after=-99999.0 (expected [0, 100000])",
+      "evidence": [
+        "quantity_after=-99999.0 (expected [0, 100000])",
+        "quantity_delta=-99999.0 (expected [-10000, 10000])"
+      ],
+      "confidence": 0.95,
+      "severity": "high",
+      "recommended_action": "Investigate the adjustment process for negative quantity_after values and validate data input validation rules."
+    }
+  },
+  "latency_ms": 46571.09,
+  "timestamp": "2026-09-01T10:23:44.417092"
+}

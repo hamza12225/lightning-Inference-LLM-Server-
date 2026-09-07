@@ -1,0 +1,68 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is due to an incorrect quantity of a product with ID PRD-003 (Dove Shampoo 400ml) in the 'orders' record with order_id 'b7c4fb57-8d38-4a60-b4e9-e24ff1258d52'. The quantity (99999) violates the business rule for order_line quantity which states that it should be an integer, greater than 0 and less than or equal to 500. This anomaly is classified as a range_violation according to the reference rules. ",
+    "root_cause": "Quantity violation in the order_line for product PRD-003",
+    "severity": "high",
+    "recommended_action": "Correct the quantity of product PRD-003 to a value between 1 and 500 in the given record."
+  },
+  "latency_ms": 12390.68,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:08:23.404468",
+  "record": {
+    "order_id": "b7c4fb57-8d38-4a60-b4e9-e24ff1258d52",
+    "store_id": "STR-CAR-H-CAS",
+    "store_name": "Carrefour Hyper Ain Sebaa",
+    "store_type": "Hypermarche",
+    "city": "Casablanca",
+    "region": "Grand Casablanca",
+    "customer_id": "CUST-9926",
+    "status": "completed",
+    "total_amount": -9999.99,
+    "currency": "MAD",
+    "payment_method": "cash",
+    "lines": [
+      {
+        "line_id": "156f05f2-7f8c-4a43-96f3-2f659fd004b4",
+        "product_id": "PRD-003",
+        "sku": "UNL-SHP-400",
+        "product_name": "Dove Shampoo 400ml",
+        "category": "Hygiene",
+        "quantity": 99999,
+        "unit_price": 45.0,
+        "discount": 0.01,
+        "line_total": 757.35
+      },
+      {
+        "line_id": "3da4782d-bbb5-454d-a662-2d1647de4dc3",
+        "product_id": "PRD-001",
+        "sku": "DAN-YGT-125",
+        "product_name": "Danone Yaourt Nature 125g",
+        "category": "Dairy",
+        "quantity": 99999,
+        "unit_price": 4.5,
+        "discount": 0.06,
+        "line_total": 21.15
+      },
+      {
+        "line_id": "6003173a-03c9-451e-b609-b8323fa49fd7",
+        "product_id": "PRD-004",
+        "sku": "LSR-OIL-1L",
+        "product_name": "Huile Lesieur 1L",
+        "category": "Grocery",
+        "quantity": 99999,
+        "unit_price": 28.5,
+        "discount": 0.14,
+        "line_total": 392.16
+      }
+    ],
+    "order_ts": "2026-09-01T10:03:32.768024",
+    "_anomaly": "range_violation"
+  },
+  "issues": [
+    "range_violation:total_amount=-9999.99 (expected [0.01, 50000])",
+    "line_total_mismatch:expected=4454955.45,got=757.35",
+    "line_total_mismatch:expected=422995.77,got=21.15",
+    "line_total_mismatch:expected=2450975.49,got=392.16"
+  ]
+}

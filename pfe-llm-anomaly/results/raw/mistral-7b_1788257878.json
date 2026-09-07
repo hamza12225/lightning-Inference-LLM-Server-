@@ -1,0 +1,31 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly involves a quantity violation for the product 'Huile Lesieur 1L' from the store 'Carrefour Express Agdal'. The recorded quantity after the event is -34, which is less than 0 and exceeds the maximum limit of 500. According to the business rules, the quantity should be an integer between 0 and 500.",
+    "root_cause": "The quantity entered for the sale of 'Huile Lesieur 1L' is not within the valid range.",
+    "severity": "high",
+    "recommended_action": "Investigate the reason for the incorrect quantity entry. Implement stricter validation checks at the point of sale to prevent such anomalies in the future."
+  },
+  "latency_ms": 5074.54,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:17:58.099116",
+  "record": {
+    "event_id": "e8973ac0-19d3-4b8a-9c76-1f5763e27aa5",
+    "store_id": "STR-CAR-E-RBA",
+    "store_name": "Carrefour Express Agdal",
+    "product_id": "PRD-004",
+    "sku": "LSR-OIL-1L",
+    "product_name": "Huile Lesieur 1L",
+    "category": "Grocery",
+    "event_type": "sale",
+    "quantity_before": 1,
+    "quantity_after": -34,
+    "quantity_delta": -35,
+    "reason": "supplier_delivery",
+    "event_ts": "2026-09-01T10:09:06.624273",
+    "_anomaly": null
+  },
+  "issues": [
+    "range_violation:quantity_after=-34.0 (expected [0, 100000])"
+  ]
+}

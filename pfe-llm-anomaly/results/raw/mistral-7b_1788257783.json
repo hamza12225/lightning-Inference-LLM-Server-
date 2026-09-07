@@ -1,0 +1,88 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The anomaly detected is 'schema_drift' due to the presence of an unexpected field 'drift_value' which is not part of the expected schema for retail.orders records. This may be caused by either a new producer version (Rule 3: schema_drift) or a system update (not explicitly covered by rules). It's essential to contact the IT coordinator immediately to investigate the issue and update the EXPECTED_SCHEMA. Additionally, the field 'currency' is missing, potentially due to schema_drift pipeline-wide (Rule 1: resolved_cases.md, section: Case 002 \u2014 schema_drift pipeline-wide Cause). The store should also be contacted to provide the correct currency information.",
+    "root_cause": "either a new producer version or a system update",
+    "severity": "critical",
+    "recommended_action": "Contact IT coordinator immediately to investigate the issue and update the EXPECTED_SCHEMA. Additionally, contact the store to provide the correct currency information."
+  },
+  "latency_ms": 7263.72,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:16:23.051045",
+  "record": {
+    "order_id": "db0c7ade-e54f-4da5-af8a-7d9b7068ddc2",
+    "store_id": "STR-CAR-H-CAS",
+    "store_name": "Carrefour Hyper Ain Sebaa",
+    "store_type": "Hypermarche",
+    "city": "Casablanca",
+    "region": "Grand Casablanca",
+    "customer_id": "CUST-5046",
+    "status": "completed",
+    "total_amount": 544.26,
+    "payment_method": "mobile",
+    "lines": [
+      {
+        "line_id": "ed0ff3bf-b9c1-4b78-84fb-1621aef6d301",
+        "product_id": "PRD-010",
+        "sku": "UNL-SOA-100",
+        "product_name": "Lux Soap 100g",
+        "category": "Hygiene",
+        "quantity": 10,
+        "unit_price": 12.5,
+        "discount": 0.02,
+        "line_total": 122.5
+      },
+      {
+        "line_id": "d94b6691-6743-4c51-a958-8cacdf368681",
+        "product_id": "PRD-003",
+        "sku": "UNL-SHP-400",
+        "product_name": "Dove Shampoo 400ml",
+        "category": "Hygiene",
+        "quantity": 6,
+        "unit_price": 45.0,
+        "discount": 0.04,
+        "line_total": 259.2
+      },
+      {
+        "line_id": "8eab39f6-4ad4-4015-a92d-fb5d3f107fb9",
+        "product_id": "PRD-002",
+        "sku": "DAN-MLK-1L",
+        "product_name": "Centrale Lben 1L",
+        "category": "Dairy",
+        "quantity": 2,
+        "unit_price": 7.2,
+        "discount": 0.01,
+        "line_total": 14.26
+      },
+      {
+        "line_id": "dbf5c416-3b0a-44b8-b8cc-17453c3bb9a1",
+        "product_id": "PRD-010",
+        "sku": "UNL-SOA-100",
+        "product_name": "Lux Soap 100g",
+        "category": "Hygiene",
+        "quantity": 5,
+        "unit_price": 12.5,
+        "discount": 0.02,
+        "line_total": 61.25
+      },
+      {
+        "line_id": "780ee1a8-f05f-4e24-9bfd-cc6c3a3ae178",
+        "product_id": "PRD-002",
+        "sku": "DAN-MLK-1L",
+        "product_name": "Centrale Lben 1L",
+        "category": "Dairy",
+        "quantity": 13,
+        "unit_price": 7.2,
+        "discount": 0.07,
+        "line_total": 87.05
+      }
+    ],
+    "order_ts": "2026-09-01T10:13:33.289951",
+    "_anomaly": "schema_drift",
+    "unexpected_field": "drift_value"
+  },
+  "issues": [
+    "missing_fields:['currency']",
+    "unexpected_fields:['unexpected_field']"
+  ]
+}

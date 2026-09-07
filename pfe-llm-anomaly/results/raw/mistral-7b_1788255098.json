@@ -1,0 +1,30 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is a 'null_spike' for the 'warehouse_id' field in the provided record. This field is required according to the business rules (Rule 1, section: orders) and should not be null. Additionally, the 'quantity' field is also null, which violates the business rules (Rule 3, section: order_line) as it should be an integer greater than 0.",
+    "root_cause": "The root cause of this anomaly is the failure to provide necessary data for the 'warehouse_id' and 'quantity' fields in the order record.",
+    "severity": "critical",
+    "recommended_action": "Review and correct the missing data for the 'warehouse_id' and 'quantity' fields in the order record with event_id '573dbb2e-ea8e-400b-a159-c331d8be6521'. Ensure that all required fields are populated according to the business rules."
+  },
+  "latency_ms": 10191.74,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:31:38.987142",
+  "record": {
+    "event_id": "573dbb2e-ea8e-400b-a159-c331d8be6521",
+    "warehouse_id": null,
+    "product_id": "PRD-010",
+    "sku": "UNL-SOA-100",
+    "product_name": "Lux Soap 100g",
+    "category": "Hygiene",
+    "event_type": "pick",
+    "quantity": null,
+    "zone": "B1",
+    "operator_id": "OPR-979",
+    "event_ts": "2026-09-01T09:27:47.544551",
+    "_anomaly": "null_spike"
+  },
+  "issues": [
+    "null_required_fields:['warehouse_id']",
+    "null_values:['warehouse_id', 'quantity']"
+  ]
+}

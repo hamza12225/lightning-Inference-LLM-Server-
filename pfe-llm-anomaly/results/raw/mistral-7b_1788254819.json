@@ -1,0 +1,31 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The anomaly detected is a range_violation for the quantity_after field in the retail.orders record. The expected range for this field is [0, 100000] but the recorded value is -42, which is outside the expected range. This indicates that the quantity of the product 'OMO Detergent 1kg' (PRD-007, SKU: UNL-DET-1KG) in the 'Carrefour Hyper Ain Sebaa' store (store_id: STR-CAR-H-CAS, store_name: Carrefour Hyper Ain Sebaa) has been recorded as a negative value during the 'sale' event on 2026-09-01T09:21:03.088882.",
+    "root_cause": "The root cause of this anomaly is a violation of the order_line rule, specifically the quantity field which should be an integer and greater than 0 and less than or equal to 500.",
+    "severity": "medium",
+    "recommended_action": "It is recommended to investigate the transaction, ensure that the quantity values are being input correctly and not negative. If necessary, correct the transaction and add a PIN for negative amounts as per Rule 2. Also, consider adding hard validation at the producer level as per Rule 1 to prevent similar issues in the future."
+  },
+  "latency_ms": 55020.28,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:26:59.253792",
+  "record": {
+    "event_id": "2dc0742e-9a98-43eb-9a1b-4f26bb4ed90d",
+    "store_id": "STR-CAR-H-CAS",
+    "store_name": "Carrefour Hyper Ain Sebaa",
+    "product_id": "PRD-007",
+    "sku": "UNL-DET-1KG",
+    "product_name": "OMO Detergent 1kg",
+    "category": "Cleaning",
+    "event_type": "sale",
+    "quantity_before": 1,
+    "quantity_after": -42,
+    "quantity_delta": -43,
+    "reason": "manual",
+    "event_ts": "2026-09-01T09:21:03.088882",
+    "_anomaly": null
+  },
+  "issues": [
+    "range_violation:quantity_after=-42.0 (expected [0, 100000])"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "model": "llama3.1:8b",
+  "explanation": {
+    "explanation": "The record contains a null value for the total_amount field, which is not allowed according to the business rules.",
+    "root_cause": "Partial record serialization due to POS terminal WiFi loss during peak hour",
+    "severity": "medium",
+    "recommended_action": "Verify the POS terminal and re-enter the transaction if necessary"
+  },
+  "latency_ms": 16330.76,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:36:39.046346",
+  "record": {
+    "order_id": "TEST",
+    "store_name": "Carrefour Test",
+    "total_amount": null
+  },
+  "issues": [
+    "null_values:[total_amount]"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "An anomaly has been detected in the 'retail.orders' records. The issue is a range violation for the 'quantity' field in the 'adjustment' event. The value 'quantity_after' is -99999, which is outside the acceptable range [-10000, 10000]. This violation also occurs in the 'quantity_delta' field. The expected range for 'quantity_delta' is also [-10000, 10000].",
+    "root_cause": "The root cause of this anomaly appears to be an error in the supplier delivery, resulting in an abnormal quantity adjustment with an unusually large value.",
+    "severity": "high",
+    "recommended_action": "Immediate action is required to correct this anomaly. The store should investigate the supplier delivery issue and ensure that the correct quantity is provided. Additionally, the system should be updated to implement hard validation to prevent such anomalies in the future."
+  },
+  "latency_ms": 6571.64,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T09:27:20.523392",
+  "record": {
+    "event_id": "e6cb20dc-e315-40fb-b704-61c5bf49b1c8",
+    "store_id": "STR-CAR-E-CAS1",
+    "store_name": "Carrefour Express Gauthier",
+    "product_id": "PRD-001",
+    "sku": "DAN-YGT-125",
+    "product_name": "Danone Yaourt Nature 125g",
+    "category": "Dairy",
+    "event_type": "adjustment",
+    "quantity_before": 382,
+    "quantity_after": -99999,
+    "quantity_delta": -99999,
+    "reason": "supplier_delivery",
+    "event_ts": "2026-09-01T09:24:46.476753",
+    "_anomaly": "range_violation"
+  },
+  "issues": [
+    "range_violation:quantity_after=-99999.0 (expected [0, 100000])",
+    "range_violation:quantity_delta=-99999.0 (expected [-10000, 10000])"
+  ]
+}

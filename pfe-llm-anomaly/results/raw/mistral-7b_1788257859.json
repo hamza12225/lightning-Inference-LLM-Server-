@@ -1,0 +1,31 @@
+{
+  "model": "mistral:7b",
+  "explanation": {
+    "explanation": "The detected anomaly is a 'null_spike' in the 'quantity_before' and 'quantity_after' fields of the given record. According to Rule 1 (inventory_event), both 'quantity_before' and 'quantity_after' are required and must be greater than or equal to 0. However, in the provided record, both 'quantity_before' and 'quantity_after' are null, which violates this rule.",
+    "root_cause": "Missing or incorrect data input",
+    "severity": "critical",
+    "recommended_action": "Verify and correct the input data for the 'quantity_before' and 'quantity_after' fields of the given record."
+  },
+  "latency_ms": 4980.62,
+  "rag_chunks": 26,
+  "timestamp": "2026-09-01T10:17:39.618688",
+  "record": {
+    "event_id": "00b8af31-cf88-4a56-a3bb-eb1e9dcb5287",
+    "store_id": "STR-CAR-H-RBA",
+    "store_name": "Carrefour Hyper Rabat Agdal",
+    "product_id": "PRD-005",
+    "sku": "NST-NES-200",
+    "product_name": "Nescafe Classic 200g",
+    "category": "Grocery",
+    "event_type": "adjustment",
+    "quantity_before": null,
+    "quantity_after": null,
+    "quantity_delta": -33,
+    "reason": "normal",
+    "event_ts": "2026-09-01T10:03:50.687898",
+    "_anomaly": "null_spike"
+  },
+  "issues": [
+    "null_values:['quantity_before', 'quantity_after']"
+  ]
+}

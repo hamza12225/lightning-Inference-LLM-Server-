@@ -14,6 +14,5 @@ log "Pulling models (this may take time)..."
 ollama pull mistral:7b
 ollama pull phi4-mini:latest
 
-
 ollama list
 log "Ollama + models ready ✅"
